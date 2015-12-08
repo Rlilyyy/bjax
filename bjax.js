@@ -133,7 +133,6 @@
 		var names = getAllFuncName(root.bjax);
 
 		var getFunc = function(key) {
-			console.log(key)
 			return function() {
 				var func = bjax[names[key]];
 				var args = [this.copy];
