@@ -24,7 +24,7 @@
 			copy["url"] = url;
 		else
 			copy["url"] = "";
-	}
+	};
 
 	// Types which is "GET" and "POST" can be choosed
 	// The default is "GET"
@@ -33,7 +33,7 @@
 			copy["type"] = type;
 		else
 			copy["type"] = "GET";
-	}
+	};
 
 	// Set asynchronous or not
 	bjax.setAsync = function(copy, isAsync) {
@@ -43,7 +43,7 @@
 			copy.async = true :
 
 			copy.async = false;
-	}
+	};
 
 	// Set up the data to send
 	bjax.setData = function(copy, data) {
@@ -52,7 +52,7 @@
 		}else {
 			copy.data = "";
 		}
-	}
+	};
 
 	// The callback function when successful
 	bjax.success = function(copy, func) {
@@ -61,7 +61,7 @@
 		}else {
 			copy.success = null;
 		}
-	}
+	};
 
 	// The callback function when failed
 	bjax.error = function(copy, func) {
@@ -70,7 +70,7 @@
 		}else {
 			copy.failed = null;
 		}
-	}
+	};
 
 	// Start bjax
 	bjax.start = function(copy) {
@@ -94,30 +94,30 @@
 					if(!!copy.success)
 						copy.success(result);
 				}
-			}
+			};
 
 		} else {
 			throw new Error("Your browser does not support XMLHTTP.");
 		}
-	}
+	};
 
 	// Use chain call
 	bjax.chain = function(obj) {
 		var obj = obj?obj:{};
 		return new bjax(obj);
-	}
+	};
 
 	bjax.printAllFunc = function(obj) {
 		if(obj == null)
 			return getAllFuncName(bjax);
 		else
 			return getAllFuncName(obj);
-	}
+	};
 
 
 	var isFunction = function(func) {
 		return typeof func === "function" || false;
-	}
+	};
 
 	var getAllFuncName = function(root) {
 		var names = [];
@@ -127,7 +127,7 @@
 				names.push(key);
 
 		return names.sort();
-	}
+	};
 
 	var initPrototype = function() {
 		var names = getAllFuncName(root.bjax);
@@ -139,13 +139,13 @@
 				push.apply(args, arguments);
 				func.apply(bjax, args);
 				return new bjax(this.copy);
-			}
-		}
+			};
+		};
 
 		for(var idx = 0;idx < names.length;idx++) {
 			root.bjax.prototype[names[idx]] = getFunc(idx);
 		}
-	}
+	};
 
 	initPrototype();
 
