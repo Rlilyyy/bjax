@@ -102,6 +102,25 @@
 		}
 	};
 
+	// Do anything
+	bjax.tab = function(copy, func, doData) {
+
+		if(!!!doData && typeof func != "function") {
+			doData = func;
+			func = copy;
+			copy = null;
+		}
+
+		if(func === console.log) {
+			func = func.bind(console);
+		}
+
+		if(!!copy && !!!doData && doData !== "")
+			func.call(root, copy);
+		else
+			func.call(root, doData);
+	};
+
 	// Use chain call
 	bjax.chain = function(obj) {
 		var obj = obj?obj:{};
