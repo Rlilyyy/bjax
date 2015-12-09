@@ -10,7 +10,9 @@ bjax.chain()
   	.setType("GET")
   	.setData("")
   	.setAsync(true)
+  	.tab(console.log) // 这里将在控制台打印当前设置好的数据的object
+  	.tab(console.log, "test") // 这里将在控制台打印"test"
   	.success(function(data) {console.log(data)})
   	.start();
 ```
-### BTW，目前还有一些bug和不足之处，将在今后不断完善
+### 如果在主线程进行同步传输的话，会提示不建议使用的提示语

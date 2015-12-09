@@ -16,7 +16,7 @@
 	root.bjax = bjax;
 
 	// VERSION
-	bjax.version = "1.0";
+	bjax.version = "1.1";
 
 	// To set the url
 	bjax.setURL = function(copy, url) {
