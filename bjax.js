@@ -85,9 +85,7 @@
 		}
 
 		if (xmlHttp != null) {
-
-			xmlHttp.open(copy.type, copy.url, copy.async);
-			xmlHttp.send(copy.data);
+			// It is not recommended to use false 
 			xmlHttp.onreadystatechange = function() {
 				if(this.readyState == 4) {
 					var result = this.responseText;
@@ -95,6 +93,9 @@
 						copy.success(result);
 				}
 			};
+
+			xmlHttp.open(copy.type, copy.url, copy.async);
+			xmlHttp.send(copy.data);
 
 		} else {
 			throw new Error("Your browser does not support XMLHTTP.");
