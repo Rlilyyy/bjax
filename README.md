@@ -14,5 +14,8 @@ bjax.chain()
   	.tab(console.log, "test") // 这里将在控制台打印"test"
   	.success(function(data) {console.log(data)})
   	.start();
+// tab(copy, func, doData)也可以直接调用
+// 例如
+bjax.tab(alert, "test")
 ```
 ### 如果在主线程进行同步传输的话，会提示不建议使用的提示语
