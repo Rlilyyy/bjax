@@ -91,6 +91,10 @@
 					var result = this.responseText;
 					if(!!copy.success)
 						copy.success(result);
+				}else {
+					var result = this.responseText;
+					if(!!copy.failed)
+						copy.failed(this.readyState, result);
 				}
 			};
 
